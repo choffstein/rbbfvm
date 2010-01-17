@@ -24,14 +24,14 @@ When /I step the virtual machine/ do
   @vm.step
 end
 
-Then /the tape pointer should be (.*)/ do |result|
+Then /the tape pointer should be (\d+)/ do |result|
   @vm.tape_pointer.should == result.to_i
 end
 
-And /the tape value at (\d*) should be (\d*)/ do |location, result|
+Then /the tape value at (\d+) should be (-?\d+)/ do |location, result|
   @vm.tape[location.to_i].should == result.to_i
 end
 
-And /the tape size should be (.*)/ do |result|
+Then /the tape size should be (\d+)/ do |result|
   @vm.tape.size.should == result.to_i
 end
