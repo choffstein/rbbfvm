@@ -75,8 +75,10 @@ module RbBFVM
           print "Which break point? "
           bp = gets.strip.to_i
           @break_points[bp] = nil
+        when 'h'
+          print_debug_help
         else
-          puts "Not a valid input"
+          puts "Not a valid input.  Try 'h' for help."
         end
       end
     end
@@ -205,6 +207,15 @@ module RbBFVM
         end
       }
       return s
+    end
+    
+    def print_debug_help
+      puts "t: Print the tape"
+      puts "s: Step the virtual machine"
+      puts "c: Continue execution"
+      puts "i: Display the nearby instructions"
+      puts "r: Remove a break-point"
+      puts "h: Display this menu"
     end
     
     def nearby_instructions_to_string
